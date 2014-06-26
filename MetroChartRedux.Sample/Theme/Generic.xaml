@@ -4,6 +4,79 @@
 
     <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
+    <Style x:Key="FPMRadialGauge" TargetType="local:RadialGaugePiece">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RadialGaugePiece">
+                    <Grid Width="{TemplateBinding ClientWidth}" Height="{TemplateBinding ClientHeight}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.1" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Unselected">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SelectionHighlight" Storyboard.TargetProperty="Opacity" To="0" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SelectionHighlight" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="RevealStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.5" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Shown">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Hidden">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0" Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Canvas x:Name="Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Path x:Name="BackgroundCircleHighlight" Data="{TemplateBinding BackgroundGeometry}" Fill="{TemplateBinding Foreground}" Opacity="0.2"  StrokeMiterLimit="1" IsHitTestVisible="False" />
+                            <Path x:Name="Slice" Data="{TemplateBinding Geometry}" ToolTipService.ToolTip="{Binding Path=FormattedValue}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeMiterLimit="1" />
+                            <Path x:Name="SelectionHighlight" Data="{TemplateBinding SelectionGeometry}" Fill="{Binding Path=SelectedBrush}" StrokeMiterLimit="2" IsHitTestVisible="False" Opacity="0" />
+                            <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
+                        </Canvas>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=EngineeringValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
+                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="FPM" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <local:ResourceDictionaryCollection x:Key="DefaultPalette">
         <ResourceDictionary>
             <SolidColorBrush x:Key="Brush1" Color="#FF007C9C" />
@@ -179,6 +252,73 @@
         </Setter>
     </Style>
     
+    <Style x:Key="FPMRadiualGaugeChartPlotterAreaStyle" TargetType="local:PlotterArea">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PlotterArea">
+                    <local:FadingListView Style="{StaticResource FadingListViewStyle}" ItemsSource="{Binding Path=ParentChart.DataPointGroups, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <local:FadingListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </local:FadingListView.ItemsPanel>
+                        <local:FadingListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" Visibility="{Binding Path=ShowCaption, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <TextBlock Text="{Binding Path=Caption}" Style="{StaticResource SeriesTitleStyle}" />
+                                    </Border>
+                                    <local:FadingListView Style="{StaticResource FadingListViewStyle}"
+                                                x:Name="itemsControl" 
+                                                ItemsSource="{Binding Path=DataPoints}"
+                                                Margin="5"
+                                                Grid.Row="1">
+                                        <local:FadingListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <!--<StackPanel Orientation="Horizontal" />-->
+                                                <local:UniformGridPanel Orientation="Horizontal" MinimalGridWidth="150.0" />
+                                            </ItemsPanelTemplate>
+                                        </local:FadingListView.ItemsPanel>
+                                        <local:FadingListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <local:RadialGaugePiece
+                                                        Style="{StaticResource FPMRadialGauge}"
+                                                        Grid.Row="0"
+                                                        Margin="5"
+                                                        Background="{Binding Path=ItemBrush}"
+                                                        SelectedBrush="{Binding Path=SelectedBrush}"  
+                                                        Value="{Binding Path=Value}"
+                                                        IsClickedByUser="{Binding Path=IsClickedByUser, Mode=TwoWay}"
+                                                        IsSelected="{Binding Path=IsSelected}"
+                                                        ClientWidth="180"
+                                                        ClientHeight="180" 
+                                                        x:Name="radial">
+                                                    </local:RadialGaugePiece>
+                                                    <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 10">
+                                                        <!--<TextBlock Text="{Binding Path=SeriesCaption}" />-->  
+                                                    </Border>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </local:FadingListView.ItemTemplate>
+                                    </local:FadingListView>
+                                </Grid>
+                            </DataTemplate>
+                        </local:FadingListView.ItemTemplate>
+                    </local:FadingListView>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
     <Style x:Key="RadialGaugeChartPlotterAreaStyle" TargetType="local:PlotterArea">
         <Setter Property="Template">
             <Setter.Value>
@@ -247,81 +387,10 @@
     
     <Style TargetType="local:RadialGaugeChart" BasedOn="{StaticResource BaseChartStyle}">
         <Setter Property="ChartAreaStyle" Value="{StaticResource RadialGaugeChartChartAreaStyle}" />
-        <Setter Property="PlotterAreaStyle" Value="{StaticResource RadialGaugeChartPlotterAreaStyle}" />
+        <Setter Property="PlotterAreaStyle" Value="{StaticResource FPMRadiualGaugeChartPlotterAreaStyle}" />
     </Style>
 
-    <!--<Style TargetType="local:RadialEngineeringGaugePiece">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="White" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local:RadialGaugePiece">
-                    <Grid Width="{TemplateBinding ClientWidth}" Height="{TemplateBinding ClientHeight}">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.1" />
-                                </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="Opacity" To="0.6" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="SelectionStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.1" />
-                                </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Unselected">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="SelectionHighlight" Storyboard.TargetProperty="Opacity" To="0" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Selected">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="SelectionHighlight" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="RevealStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.5" />
-                                </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Shown">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Hidden">
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0" Duration="0" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <Canvas x:Name="Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Path x:Name="BackgroundCircleHighlight" Data="{TemplateBinding BackgroundGeometry}" Fill="{TemplateBinding Foreground}" Opacity="0.2"  StrokeMiterLimit="1" IsHitTestVisible="False" />
-                            <Path x:Name="Slice" Data="{TemplateBinding Geometry}" ToolTipService.ToolTip="{Binding Path=FormattedValue}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeMiterLimit="1" />
-                            <Path x:Name="SelectionHighlight" Data="{TemplateBinding SelectionGeometry}" Fill="{Binding Path=SelectedBrush}" StrokeMiterLimit="2" IsHitTestVisible="False" Opacity="0" />
-                            <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
-                        </Canvas>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=EngineeringValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="FPM" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
-                        </StackPanel>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
+    
 
 
     <Style TargetType="local:RadialGaugePiece">

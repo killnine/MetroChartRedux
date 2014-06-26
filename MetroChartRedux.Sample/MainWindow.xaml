@@ -2,20 +2,33 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:metroChartRedux="clr-namespace:MetroChartRedux;assembly=MetroChartRedux"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="350" Width="300"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <metroChartRedux:RadialGaugeChart  
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
                 ChartTitle="Gauge Chart"
                 ChartSubTitle="Chart with dynamic width and height">
             <metroChartRedux:RadialGaugeChart.Series>
                 <metroChartRedux:ChartSeries
-                        SeriesTitle="Feet per Minute"
+                        SeriesTitle="Feet Per Minute"
                         DisplayMember="Category"
                         ValueMember="Number"
                         ItemsSource="{Binding Path=Speed}">
                 </metroChartRedux:ChartSeries>
             </metroChartRedux:RadialGaugeChart.Series>
         </metroChartRedux:RadialGaugeChart>
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource SeriesTitleStyle}" Text="Impressions/Hour"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Style="{StaticResource ChartSubTitleStyle}" Text="{Binding ImpressionsPerHour}"/>
     </Grid>
 </Window>
