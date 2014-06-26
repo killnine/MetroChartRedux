@@ -5,9 +5,16 @@
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
-        <metroChartRedux:RadialGaugeChart>
+        <metroChartRedux:RadialGaugeChart  
+                ChartTitle="Gauge Chart"
+                ChartSubTitle="Chart with dynamic width and height">
             <metroChartRedux:RadialGaugeChart.Series>
-                <metroChartRedux:ChartSeries ></metroChartRedux:ChartSeries>
+                <metroChartRedux:ChartSeries
+                        SeriesTitle="Feet per Minute"
+                        DisplayMember="Category"
+                        ValueMember="Number"
+                        ItemsSource="{Binding Path=Speed}">
+                </metroChartRedux:ChartSeries>
             </metroChartRedux:RadialGaugeChart.Series>
         </metroChartRedux:RadialGaugeChart>
     </Grid>

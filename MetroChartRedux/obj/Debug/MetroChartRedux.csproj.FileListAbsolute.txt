@@ -12,3 +12,27 @@
 \\psf\Google Drive\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
 C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.csprojResolveAssemblyReference.cache
 C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\MetroChartRedux.dll.config
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\MetroChartRedux.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\MetroChartRedux.pdb
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.WPF4.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.pdb
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.xml
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.WPF4.pdb
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\GalaSoft.MvvmLight.WPF4.xml
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.csprojResolveAssemblyReference.cache
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.lref
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\Theme\Generic.baml
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.g.resources
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.Properties.Resources.resources
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.csproj.GenerateResource.Cache
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.dll
+C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\obj\Debug\MetroChartRedux.pdb

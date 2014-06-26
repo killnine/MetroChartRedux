@@ -6,11 +6,12 @@
              StartupUri="MainWindow.xaml"
              d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
   <Application.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Theme/Generic.xaml" />
-      </ResourceDictionary.MergedDictionaries>
-      <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
-    </ResourceDictionary>
-  </Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Theme/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator x:Key="Locator" d:sDataSource="True" />
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
