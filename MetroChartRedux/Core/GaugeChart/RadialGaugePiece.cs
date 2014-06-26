@@ -250,7 +250,7 @@ namespace MetroChartRedux
 
         private void UpdateFormattedValue()
         {
-            SetValue(RadialGaugePiece.FormattedAnimatedValueProperty, AnimatedValue.ToString("N0"));
+            SetValue(RadialGaugePiece.FormattedAnimatedValueProperty, AnimatedValue.ToString("F0"));
         }
 
         protected override void InternalOnApplyTemplate()
@@ -274,14 +274,13 @@ namespace MetroChartRedux
                 }
 
                 double m_startpercent = 0;
-                double m_endpercent = AnimatedValue/Maximum; // Value;
+                double m_endpercent = (AnimatedValue/Maximum) * 100;
 
                 Point center = GetCenter();
 
                 double startAngle = (360 / 100.0) * m_startpercent;
                 double endAngle = (360 / 100.0) * m_endpercent;
                 double radius = GetRadius();
-                bool isLarge = (endAngle - startAngle) > 180.0;
 
                 Geometry segmentPathData = LayoutSegment(startAngle, endAngle, radius, 0.50, center, true);
                 if (segmentPathData != null)

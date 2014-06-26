@@ -68,8 +68,8 @@
                             <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
                         </Canvas>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=FormattedAnimatedValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="FPM" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
+                            <TextBlock LineStackingStrategy="BlockLineHeight" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=FormattedAnimatedValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
+                            <TextBlock LineStackingStrategy="BlockLineHeight" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="FPM" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
                         </StackPanel>
                     </Grid>
                 </ControlTemplate>
@@ -292,6 +292,7 @@
                                                     </Grid.RowDefinitions>
                                                     <local:RadialGaugePiece
                                                         Style="{StaticResource FPMRadialGauge}"
+                                                        Maximum="3000"
                                                         Grid.Row="0"
                                                         Margin="5"
                                                         Background="{Binding Path=ItemBrush}"
