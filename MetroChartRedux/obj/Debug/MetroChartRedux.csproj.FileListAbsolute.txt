@@ -1,0 +1,14 @@
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\bin\Debug\MetroChartRedux.dll
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\bin\Debug\MetroChartRedux.pdb
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\GeneratedInternalTypeHelper.g.cs
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.lref
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\Theme\Generic.baml
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.g.resources
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.Properties.Resources.resources
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.csproj.GenerateResource.Cache
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.dll
+\\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.pdb
+\\psf\Google Drive\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
+C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.csprojResolveAssemblyReference.cache
+C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
