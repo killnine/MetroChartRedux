@@ -10,7 +10,6 @@
 \\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.dll
 \\sxcorp1\dheiser\visual studio 2013\Projects\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.pdb
 \\psf\Google Drive\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
-C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux.csprojResolveAssemblyReference.cache
 C:\WIP\MetroChartRedux\MetroChartRedux\obj\Debug\MetroChartRedux_MarkupCompile.cache
 C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\MetroChartRedux.dll.config
 C:\Users\dheiser\Downloads\MetroChartRedux-master\MetroChartRedux-master\MetroChartRedux\bin\Debug\MetroChartRedux.dll
