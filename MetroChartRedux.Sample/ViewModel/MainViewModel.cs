@@ -20,9 +20,21 @@ namespace MetroChartRedux.Sample.ViewModel
         }
     }
 
-    public class SeriesClass
+    public class SeriesClass : ObservableObject
     {
-        public string Category { get; set; }
-        public int Number { get; set; }
+        private string _category;
+        private double _number;
+
+        public string Category
+        {
+            get { return _category; }
+            set { Set(() => Category, ref _category, value); }
+        }
+
+        public double Number
+        {
+            get { return _number; }
+            set { Set(() => Number, ref _number, value); }
+        }
     }
 }

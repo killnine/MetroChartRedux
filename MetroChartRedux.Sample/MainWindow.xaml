@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <metroChartRedux:RadialGaugeChart  
             Grid.Row="0"
@@ -30,5 +31,19 @@
         </metroChartRedux:RadialGaugeChart>
         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource SeriesTitleStyle}" Text="Impressions/Hour"/>
         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Style="{StaticResource ChartSubTitleStyle}" Text="{Binding ImpressionsPerHour}"/>
+        <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Speed}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=Category}"/>
+                        <TextBox Width="50" Grid.Column="1" Text="{Binding Path=Number,Mode=TwoWay}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

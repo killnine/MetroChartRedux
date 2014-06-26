@@ -67,8 +67,8 @@
                             <Path x:Name="SelectionHighlight" Data="{TemplateBinding SelectionGeometry}" Fill="{Binding Path=SelectedBrush}" StrokeMiterLimit="2" IsHitTestVisible="False" Opacity="0" />
                             <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
                         </Canvas>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=EngineeringValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=FormattedAnimatedValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
                             <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="FPM" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
                         </StackPanel>
                     </Grid>
